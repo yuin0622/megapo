@@ -1,0 +1,27 @@
+.c-artist-card
+  max-width: 45rem
+  &.--size-lg
+    max-width: 56rem
+  &.--reverse &__link
+    display: flex
+    flex-direction: column-reverse
+  &__link
+    filter: grayscale(100%)
+    transition: filter 0.3s
+    &:hover
+      filter: grayscale(0%)
+
+.c-artist-card-2
+  // 撐滿高，讓圖當滿版背景用
+  // height: 100%
+  &__link, &__img-mask
+    // height: 100%
+  &__title
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    z-index: 10
+  &__img-mask
+    --img-x-ratio: 16
+    --img-y-ratio: 9

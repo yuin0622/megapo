@@ -1,0 +1,134 @@
+.l-header
+  // 因為 sticky 一樣會佔位，如果想要 hero 寬高滿版，可以改用 fixed
+  // position: sticky
+  // position: -webkit-sticky
+  position: fixed
+  display: flex
+  justify-content: space-between
+  align-items: center
+  left: 0
+  top: 0
+  // 因為 fixed 會造成寬度不撐滿
+  width: 100%
+  padding-left: 4vw
+  background-color: var(--color-black)
+  z-index: 99
+  &__img-mask
+    flex-shrink: 0
+    width: 19.2rem
+  &__burger
+    display: none
+
+  +media(xl)
+    padding: var(--spacing-16) 4vw    
+    &__burger
+      display: block
+
+.c-nav
+  &__menu
+    display: flex
+  &__btn-box
+    display: flex
+  &__btn-box.--icon &__btn
+    display: flex
+    align-items: center
+    height: 100%
+    padding-left: 1.2vw
+    padding-right: 1.2vw
+    background-color: var(--color-gray-mid-40)
+    &::before, &::after
+      --gradient-color: var(--color-secondary)
+
+  // 沒有分隔線的做法
+  // &__btn-box.--menu &__btn-wrap
+  //   margin-right: 4vw
+  // &__btn-box.--icon &__btn-wrap:not(:last-child)
+  //   margin-right: 2vw
+
+  &__btn
+    // vw 簡易換算方式
+    // px 除以 20
+    padding: var(--spacing-24) 3vw
+    // border: 1px solid #fff
+    line-height: 1.2
+    color: var(--color-gray-mid)
+    transition: color 0.3s
+    &:hover
+      color: var(--color-gray-light)
+      &::before
+        opacity: 1
+        // 如果只設定在 hover 的話，只有進去會有過渡
+        // transition: opacity 0.3s
+    &::before, &::after
+      --gradient-color: var(--color-primary)
+      content: ''
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      +size(100%)
+      // transparent 透明的
+      background-image: linear-gradient(to bottom, var(--gradient-color), transparent)
+    &::before
+      +size(100%)
+      opacity: 0
+      transition: opacity 0.3s
+    &::after
+      --gradient-color: var(--color-gray-light)
+      +size(1px, 100%)
+
+  +media(xxl)
+    &__btn
+      padding-left: 2.6vw
+      padding-right: 2.6vw
+      
+  +media(xl)
+    // c-nav 手機版單純控制開關
+    position: fixed
+    left: 0
+    top: 0
+    +size(100%)
+    opacity: 0
+    // 讓滑鼠無作用
+    pointer-events: none
+    transition: opacity 0.5s
+    &.is-opened
+      opacity: 1
+      pointer-events: auto
+      // overflow: auto 內容物超出範圍時，滾軸出現
+      overflow: auto
+    //- .c-nav__menu 手機版控制內容
+    &__menu
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      width: 100%
+      // 解決視窗高度縮小 flex 吃掉上下內容
+      min-height: 100%
+      padding: var(--spacing-80)
+      background-color: var(--color-black-80)
+    &__btn-box.--icon &__btn
+      background-color: transparent
+      &::after
+        display: none
+    &__btn-wrap:first-child &__btn::after
+      display: none
+
+  +media(sm)
+    &__btn-box:not(.--icon)
+      flex-direction: column
+      align-items: center
+    &__btn
+      text-align: center
+      &::after
+        display: none
+      
+// @media (max-width: 1600px)
+//   .c-nav
+//     &__btn
+
+#nav-switcher:checked ~ .c-nav
+  opacity: 1
+  pointer-events: auto
+  // overflow: auto 內容物超出範圍時，滾軸出現
+  overflow: auto

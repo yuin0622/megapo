@@ -1,0 +1,61 @@
+header.l-header
+    a.l-header__img-mask(href=baseUrl)
+        img(src="img/logo/logo.svg", alt="大港開唱 Logo")
+
+    //- input#nav-switcher(type="checkbox" hidden)
+    
+    //- label.o-burger.l-header__burger(for="nav-switcher") 
+    //-     .o-burger__wrap
+    //-         .o-burger__line
+    //-         .o-burger__line
+    //-         .o-burger__line
+
+    button.o-burger.l-header__burger(onclick="toggleNav()") 
+        .o-burger__wrap
+            .o-burger__line
+            .o-burger__line
+            .o-burger__line
+        
+    //- c-nav 手機版單純控制開關
+    //- data-lenis-prevent 讓 overflow: auto 滾軸可以正常使用
+    //- 不受 lenis 影響
+    nav.c-nav(date-lenis-prevent)
+        .c-nav__menu
+            //- box > wrap
+            //- list > item
+            ul.c-nav__btn-box
+                li.c-nav__btn-wrap
+                    a.c-nav__btn(href="##")
+                        span.u-ff-en.u-text-lg LINEUP
+                        span 演出陣容
+                li.c-nav__btn-wrap
+                    a.c-nav__btn(href="##")
+                        span.u-ff-en.u-text-lg NEWS
+                        span 最新消息
+                li.c-nav__btn-wrap
+                    a.c-nav__btn(href="##")
+                        span.u-ff-en.u-text-lg ABOUT
+                        span 關於大港
+                li.c-nav__btn-wrap
+                    a.c-nav__btn(href="##")
+                        span.u-ff-en.u-text-lg TIMETABLE
+                        span 節目表
+                li.c-nav__btn-wrap
+                    a.c-nav__btn(href="##")
+                        span.u-ff-en.u-text-lg TICKET
+                        span 購票資訊
+                li.c-nav__btn-wrap
+                    a.c-nav__btn(href="map.html")
+                        span.u-ff-en.u-text-lg MAP
+                        span 地圖導覽
+
+            ul.c-nav__btn-box.--icon
+                li.c-nav__btn-wrap
+                    a.c-nav__btn(href="##" target="_blank")
+                        iconify-icon.u-icon-md(icon="mingcute:facebook-fill")
+                li.c-nav__btn-wrap
+                    a.c-nav__btn(href="##" target="_blank")
+                        iconify-icon.u-icon-md(icon="mingcute:ins-fill")
+                li.c-nav__btn-wrap
+                    a.c-nav__btn(href="##" target="_blank")
+                        iconify-icon.u-icon-md(icon="mingcute:youtube-fill")

@@ -1,0 +1,51 @@
+meta(charset="UTF-8")
+//- 新增 maximum-scale=1.0, user-scalable=0 防止手機點擊表單畫面放大
+meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+
+//- 非正式或練習用網站，可設置此 meta 防止瀏覽器索引
+meta(name="robots", content="noindex, nofollow")
+
+//- 防止 iphone 自動加入撥號連結
+meta(http-equiv="x-rim-auto-match", content="none")
+meta(name="format-detection", content="telephone=no")
+
+//- FB 縮圖資訊，偵錯及預覽工具https://developers.facebook.com/tools/debug/
+meta(property="og:type", content="website")
+meta(property="og:url", content=`${baseUr}/${path}`)
+meta(property="og:image", content=`${baseUrl}/${image}`)
+
+//- <Page Title> - <Site Name>｜<Info Title>
+//- 判斷是不是內頁，有沒有 pageTitle
+- const  title = `${pageTitle ?`${pageTitle} -` : '' }`
+meta(property="og:title", content=`${title}${siteName}｜${infoTitle}`)
+meta(property="og:description", content=description)
+
+//- 網頁描述
+meta(name="description", content=description)
+
+link(rel="icon", type="image/png", href="favicon/favicon-48x48.png", sizes="48x48")
+link(rel="icon", type="image/svg+xml", href="favicon/favicon.svg")
+link(rel="shortcut icon", href="favicon/favicon.ico")
+link(rel="apple-touch-icon", sizes="180x180", href="favicon/apple-touch-icon.png")
+meta(name="apple-mobile-web-app-title", content="（專案實作）大港開唱")
+link(rel="manifest", href="favicon/site.webmanifest")
+
+script(src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js")
+
+link(rel="preconnect", href="https://fonts.googleapis.com")
+link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+link(href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;900&family=Roboto:wght@700;900&display=swap", rel="stylesheet")
+
+//- 插件類 css 樣式引入在上面，因為有時候會用自己的 css 去改寫
+link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous")
+//- 因為編譯完成 index.html 會在 dist 裡面
+//- 所以要連動 css 要以 dist 資料夾為根目錄去思考
+
+link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css")
+link(rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css")
+link(rel="stylesheet", href=`${baseUrl}/css/aos.min.css`)
+link(rel="stylesheet", href=`${baseUrl}/css/style.css`)
+
+//- 網頁標題
+//- pug 的內容語法，使用 # 字號
+title #{title}#{siteName}|#{infoTitle}

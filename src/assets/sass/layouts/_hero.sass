@@ -1,0 +1,12 @@
+.l-hero
+    +size(100%, 100vh)
+    &__swiper
+        //寬高都隨父層 100%
+        +size(100%)
+    &__slide.swiper-slide-active &__img-mask
+        transform: scale(1.1)
+    &__img-mask
+        +size(100%)
+        transform: scale(1)
+        transition: transform 12s
+
